@@ -126,6 +126,7 @@ class ShopifyStore with ShopifyError {
   ///  SortKey.RELEVANCE,
   Future<List<Product>?> getNProducts(int n,
       {bool? reverse,
+      String? countryCode,
       SortKeyProduct sortKey = SortKeyProduct.PRODUCT_TYPE}) async {
     List<Product>? productList = [];
     final WatchQueryOptions _options = WatchQueryOptions(
@@ -133,6 +134,7 @@ class ShopifyStore with ShopifyError {
       variables: {
         'n': n,
         'sortKey': sortKey.parseToString(),
+        'countryCode': countryCode,
         'reverse': reverse,
       },
     );
